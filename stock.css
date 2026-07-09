@@ -24,8 +24,7 @@ table {
   margin: 20px auto;
 }
 
-th,
-td {
+th, td {
   border-bottom: 1px solid black;
   padding: 5px;
   text-align: center;
@@ -60,107 +59,55 @@ td.srp {
 }
 
 /* Variabel background per seri */
-.y05series {
-  --black-img: url("img/y05_black.png");
-  --blue-img: url("img/y05_blue.png");
+.y05series { --black-img: url('img/y05_black.png'); --blue-img: url('img/y05_blue.png'); }
+.y11dseries { --black-img: url('img/y11d_black.png'); --platinum-img: url('img/y11d_white.png'); }
+.y31dseries { --grey-img: url('img/y31d_grey.png'); --white-img: url('img/y31d_white.png'); }
+.y500series { --blue-img: url('img/y500_blue.png'); --white-img: url('img/y500_white.png'); }
+.v60liteseries { --black-img: url('img/v60lite_black.png'); --blue-img: url('img/v60lite_blue.png'); --pink-img: url('img/v60lite_pink.png'); }
+.v70feseries { --blue-img: url('img/v70fe_blue.png'); --silver-img: url('img/v70fe_silver.png'); --purple-img: url('img/v70fe_purple.png'); }
+.v70series { --brown-img: url('img/v70_brown.png'); --gray-img: url('img/v70_gray.png'); --gold-img: url('img/v70_gold.png'); }
+.x300series { 
+  --black-img: url('img/x300_black.png');
+  --blue-img: url('img/x300_blue.png');
+  --pink-img: url('img/x300_pink.png'); 
+  --black2-img: url('img/x300pro_black.png');
+  --brown-img: url('img/x300pro_brown.png');
+  --white-img: url('img/x300pro_white.png');
+  --black3-img: url('img/x300ultra_black.png');
+  --green-img: url('img/x300ultra_green.png');
 }
-.y11dseries {
-  --black-img: url("img/y11d_black.png");
-  --platinum-img: url("img/y11d_white.png");
-}
-.y31dseries {
-  --grey-img: url("img/y31d_grey.png");
-  --white-img: url("img/y31d_white.png");
-}
-.y500series {
-  --blue-img: url("img/y500_blue.png");
-  --white-img: url("img/y500_white.png");
-}
-.v60liteseries {
-  --black-img: url("img/v60lite_black.png");
-  --blue-img: url("img/v60lite_blue.png");
-  --pink-img: url("img/v60lite_pink.png");
-}
-.v70feseries {
-  --blue-img: url("img/v70fe_blue.png");
-  --silver-img: url("img/v70fe_silver.png");
-  --purple-img: url("img/v70fe_purple.png");
-}
-.v70series {
-  --brown-img: url("img/v70_brown.png");
-  --grey-img: url("img/v70_grey.png");
-  --gold-img: url("img/v70_gold.png");
-}
-.x300series {
-  --black-img: url("img/x300_black.png");
-  --blue-img: url("img/x300_blue.png");
-  --pink-img: url("img/x300_pink.png");
-}
-.x300proseries {
-  --brown-img: url("img/x300pro_brown.png");
-  --black-img: url("img/x300pro_black.png");
-  --white-img: url("img/x300pro_white.png");
-}
-.x300ultraseries {
-  --black-img: url("img/x300ultra_black.png");
-  --green-img: url("img/x300ultra_green.png");
-}
-.iqz11xseries {
-  --black-img: url("img/z11x_black.png");
-  --silver-img: url("img/z11x_silver.png");
-}
-.iqz11series {
-  --black-img: url("img/z11_black.png");
-  --blue-img: url("img/z11_blue.png");
-}
-.iq15rseries {
-  --black-img: url("img/15r_black.png");
-  --silver-img: url("img/15r_silver.png");
-}
-.iq15series {
-  --alpha-img: url("img/15_alpha.png");
-  --legend-img: url("img/15_legend.png");
-}
+.iqz11series { 
+  --black2-img: url('img/z11_black.png'); 
+  --black-img: url('img/z11x_black.png'); 
+  --blue-img: url('img/z11_blue.png'); 
+  --silver-img: url('img/z11x_silver.png'); }
+.iq15series { --black-img: url('img/15r_black.png'); --silver-img: url('img/15r_silver.png'); --alpha-img: url('img/15_alpha.png'); --legend-img: url('img/15_legend.png'); }
 
 /* Background mapping di level baris */
-tr[data-color="black"] {
-  background-image: var(--black-img);
+tr[data-color="black"] { background-image: var(--black-img); }
+tr[data-color="black2"] { background-image: var(--black2-img); }
+tr[data-color="black3"] { background-image: var(--black3-img); }
+tr[data-color="blue"] { background-image: var(--blue-img); }
+tr[data-color="white"] { background-image: var(--white-img); }
+tr[data-color="pink"] { background-image: var(--pink-img); }
+tr[data-color="purple"] { background-image: var(--purple-img); }
+tr[data-color="silver"] { background-image: var(--silver-img); }
+tr[data-color="grey"] { background-image: var(--grey-img); }
+tr[data-color="platinum"] { background-image: var(--platinum-img); }
+tr[data-color="gold"] { background-image: var(--gold-img); }
+tr[data-color="brown"] { background-image: var(--brown-img); }
+tr[data-color="alpha"] { background-image: var(--alpha-img); }
+tr[data-color="legend"] { background-image: var(--legend-img); }
+tr[data-color="green"] { background-image: var(--green-img); }
+tr[data-color="gray"] { background-image: var(--gray-img); }
+
+.iqz11series tbody tr[data-color="black"]:nth-of-type(3),
+.x300series tbody tr[data-color="black"]:nth-of-type(7) {
+  background-image: var(--black2-img);
 }
-tr[data-color="blue"] {
-  background-image: var(--blue-img);
-}
-tr[data-color="white"] {
-  background-image: var(--white-img);
-}
-tr[data-color="pink"] {
-  background-image: var(--pink-img);
-}
-tr[data-color="purple"] {
-  background-image: var(--purple-img);
-}
-tr[data-color="silver"] {
-  background-image: var(--silver-img);
-}
-tr[data-color="grey"] {
-  background-image: var(--grey-img);
-}
-tr[data-color="platinum"] {
-  background-image: var(--platinum-img);
-}
-tr[data-color="gold"] {
-  background-image: var(--gold-img);
-}
-tr[data-color="brown"] {
-  background-image: var(--brown-img);
-}
-tr[data-color="alpha"] {
-  background-image: var(--alpha-img);
-}
-tr[data-color="legend"] {
-  background-image: var(--legend-img);
-}
-tr[data-color="green"] {
-  background-image: var(--green-img);
+.x300series tbody tr[data-color="black"]:nth-of-type(10),
+.x300series tbody tr[data-color="black"]:nth-of-type(12) {
+  background-image: var(--black3-img);
 }
 
 tr[data-color] {
@@ -179,7 +126,7 @@ tr[data-color] td.srp {
 /* Tone styling di level baris */
 tr[data-tone="dark"] {
   color: white;
-  text-shadow: 0.5px 0.5px 1px black;
+  text-shadow: .5px .5px 1px black;
 }
 tr[data-tone="light"] {
   color: black;
@@ -205,29 +152,22 @@ td.sellout {
 .kilau::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: -75%;
+  top: 0; left: -75%;
   width: 75%;
   height: 100%;
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(255, 255, 255, 0.6),
+    rgba(255,255,255,0.6),
     transparent
   );
   animation: shine 5s infinite; /* setiap 5 detik */
 }
 
 @keyframes shine {
-  0% {
-    left: -75%;
-  }
-  50% {
-    left: 125%;
-  }
-  100% {
-    left: 125%;
-  }
+  0%   { left: -75%; }
+  50%  { left: 125%; }
+  100% { left: 125%; }
 }
 
 #y31d,
