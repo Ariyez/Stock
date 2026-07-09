@@ -28,36 +28,27 @@ const seriesToneMap = {
   },
   v70: {
     "brown": "dark",
-    "grey": "light",
+    "gray": "light",
     "gold": "light",
   },
   x300: {
     "black": "dark",
+    "black2": "dark",
+    "black3": "dark",
     "blue": "light",
     "pink": "light",
-  },
-  x300pro: {
-    "black": "dark",
     "brown": "light",
     "white": "light",
-  },
-  x300ultra: {
-    "black": "dark",
     "green": "light",
-  },
-  iqz11x: {
-    "black": "dark",
-    "silver": "light",
   },
   iqz11: {
     "black": "dark",
+    "black": "dark",
     "blue": "light",
   },
-  iq15r: {
+  iq15: {
     "black": "dark",
     "silver": "light",
-  },
-  iq15: {
     "alpha": "dark",
     "legend": "light",
   }
@@ -153,10 +144,6 @@ loadSheet("Y500!A1:E", "y500");
 loadSheet("'V60 LITE'!A1:E", "v60lite");
 loadSheet("'V70 FE'!A1:E", "v70fe");
 loadSheet("V70!A1:E", "v70");
-loadSheet("Z11X!A1:E", "iqz11x");
-loadSheet("Z11!A1:E", "iqz11");
-loadSheet("15R!A1:E", "iq15r");
-loadSheet("15!A1:E", "iq15");
 loadSheet("X300!A1:E", "x300");
-loadSheet("'X300 Pro'!A1:E", "x300pro");
-loadSheet("'X300 Ultra'!A1:E", "x300ultra");
+loadSheet("Z11!A1:E", "iqz11");
+loadSheet("15!A1:E", "iq15");
