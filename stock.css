@@ -1,31 +1,16 @@
-/* Import font dari folder kamu */
-@font-face {
-  font-family: "VivoSansStd";
-  src: url("fonts/vivoSansStdVF.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "VivoSansComp600";
-  src: url("fonts/vivoSansComp600_O.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-
 table {
   width: 600px;
   border-collapse: separate;
   border-spacing: 0;
-  border: 1px solid black;
   border-radius: 20px 20px 0 0;
   overflow: hidden;
-  padding: 10px;
-  margin: 20px auto;
+  padding: 10px 30px 15px 30px;
+  margin: 0 auto;
+  font-family: VivoSansStd;
 }
 
 th, td {
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid #ddd;
   padding: 5px;
   text-align: center;
 }
@@ -45,16 +30,16 @@ td.srp {
 .stock-vivo th[colspan="5"] {
   background: #415fff;
   color: #fff;
-  height: 50px;
-  border-radius: 20px 20px 0 0;
+  height: 25px;
+  border-radius: 35px 0 35px 0;
   font-family: "VivoSansStd", sans-serif;
 }
 
 .stock-iqoo th[colspan="5"] {
   background: #ffc000;
   color: #000;
-  height: 50px;
-  border-radius: 20px 20px 0 0;
+  height: 25px;
+  border-radius: 35px 0 35px 0;
   font-family: "VivoSansStd", sans-serif;
 }
 
@@ -172,7 +157,7 @@ td.sellout {
 
 #y31d,
 #y500 {
-  background-color: rgba(255, 255, 0, 0.6);
+  background-color: rgba(255, 255, 0, 0.8);
 }
 
 @media (max-width: 600px) {
