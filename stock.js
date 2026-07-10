@@ -1,4 +1,3 @@
-// Tone mapping manual per seri
 const seriesToneMap = {
   y05: {
     "black": "dark",
@@ -54,23 +53,21 @@ const seriesToneMap = {
   }
 };
 
-// Ambil tone berdasarkan seri + warna
 function getTone(seriesId, colorName){
-  const lower = colorName.toLowerCase().replace(/\s+/g, "-"); // ganti spasi jadi "-"
+  const lower = colorName.toLowerCase().replace(/\s+/g, "-");
   const tone = seriesToneMap[seriesId]?.[lower];
-  return tone || "light"; // default jika tidak ada mapping
+  return tone || "light";
 }
 
 async function loadSheet(range, tableId) {
-  const sheetId = "1vhPPwpeFsQwSWBhJXIzVmEwI_3ZxdwCIrwWBmDzPbfY"; // ID sheet
-  const apiKey = "AIzaSyB5-DJ8TNb1DoxfC6LNoecM7YMo8g1yS1I";       // API key
+  const sheetId = "1vhPPwpeFsQwSWBhJXIzVmEwI_3ZxdwCIrwWBmDzPbfY";
+  const apiKey = "AIzaSyB5-DJ8TNb1DoxfC6LNoecM7YMo8g1yS1I";
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
   
   const res = await fetch(url);
   const data = await res.json();
   const tbody = document.querySelector(`#${tableId} tbody`);
 
-  // Grouping berdasarkan Memory lalu SRP
   let memoryGroups = {};
   data.values.slice(1).forEach(row => {
     const [memory, srp, color, stock, sellout] = row;
@@ -79,21 +76,18 @@ async function loadSheet(range, tableId) {
     memoryGroups[memory][srp].push({color, stock, sellout});
   });
 
-  // Render tabel
   Object.entries(memoryGroups).forEach(([memory, srpGroup]) => {
-    let memoryAdded = false; // flag
+    let memoryAdded = false;
     const totalRows = Object.values(srpGroup).reduce((sum, arr) => sum + arr.length, 0);
 
     Object.entries(srpGroup).forEach(([srp, rows]) => {
       rows.forEach((r, idx) => {
         const tr = document.createElement("tr");
 
-        // Tambahkan data-color & data-tone di <tr>
         const colorKey = r.color.toLowerCase().replace(/\s+/g, "-");
         tr.dataset.color = colorKey;
         tr.dataset.tone  = getTone(tableId, r.color);
 
-        // Memory cell (sekali saja)
         if (!memoryAdded) {
           const tdMemory = document.createElement("td");
           tdMemory.textContent = memory;
@@ -103,7 +97,6 @@ async function loadSheet(range, tableId) {
           memoryAdded = true;
         }
 
-        // SRP cell (sekali per SRP)
         if (idx === 0) {
           const tdSrp = document.createElement("td");
           tdSrp.textContent = srp;
@@ -112,19 +105,16 @@ async function loadSheet(range, tableId) {
           tr.appendChild(tdSrp);
         }
 
-        // Color
         const tdColor = document.createElement("td");
         tdColor.textContent = r.color;
         tdColor.classList.add("color");
         tr.appendChild(tdColor);
 
-        // Stock
         const tdStock = document.createElement("td");
         tdStock.textContent = r.stock;
         tdStock.classList.add("stock");
         tr.appendChild(tdStock);
 
-        // Sellout
         const tdSellout = document.createElement("td");
         tdSellout.textContent = r.sellout;
         tdSellout.classList.add("sellout");
@@ -136,7 +126,6 @@ async function loadSheet(range, tableId) {
   });
 }
 
-// Load semua tab
 loadSheet("Y05!A1:E", "y05");
 loadSheet("Y11D!A1:E", "y11d");
 loadSheet("Y31D!A1:E", "y31d");
@@ -147,3 +136,40 @@ loadSheet("V70!A1:E", "v70");
 loadSheet("X300!A1:E", "x300");
 loadSheet("Z11!A1:E", "iqz11");
 loadSheet("15!A1:E", "iq15");
+
+async function loadRank() {
+  const sheetId = "1vhPPwpeFsQwSWBhJXIzVmEwI_3ZxdwCIrwWBmDzPbfY";
+  const apiKey = "AIzaSyB5-DJ8TNb1DoxfC6LNoecM7YMo8g1yS1I";
+  const range = "'Top Rank'!A13:C";
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+
+  const res = await fetch(url);
+  const data = await res.json();
+  const container = document.getElementById("cont-alltype");
+  const foto = document.getElementById("foto");
+
+  data.values.forEach((row, idx) => {
+    const block = document.createElement("div");
+    block.className = "alltype";
+
+    const pRank = document.createElement("p");
+    pRank.textContent = row[0];
+    block.appendChild(pRank);
+
+    const pName = document.createElement("p");
+    pName.textContent = row[1];
+    block.appendChild(pName);
+
+    const pUnit = document.createElement("p");
+    pUnit.textContent = row[2] + " unit";
+    block.appendChild(pUnit);
+
+    container.appendChild(block);
+
+    if (idx === 0) {
+      foto.src = `img/${row[1].toLowerCase()}.png`;
+    }
+  });
+}
+
+loadRank();
