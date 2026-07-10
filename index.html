@@ -1,14 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stock Tangcity</title>
+  <title>Vivo Tangcity</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="global.css">
   <link rel="stylesheet" href="stock.css">
 </head>
 <body>
-
-<div class="stock-vivo">
+<div class="cont-navbar">
+  <div class="navbar">
+    <img class="logo-icon" src="img/logo.png">
+    <a href="">
+      <img class="login-icon" src="img/login.png">
+    </a>
+  </div>
+</div>
+<div class="cont-header">
+  <div class="header">
+    <div class="topAllType">
+     <div><h5>Top Performance All Type</h5></div>
+     <div><img id="foto"></div>
+     <div id="cont-alltype"></div>
+    </div>
+  </div>
+</div>
+<div class="cont-menu">
+  <div class="menu">
+    <div class="stock-vivo">
   <!-- Tabel Y05 Series -->
   <table id="y05" class="y05series">
     <colgroup>
@@ -251,7 +271,9 @@
     <tbody></tbody>
   </table>
 </div>
-
-  <script src="stock.js"></script>
+  </div>
+</div>
+<script src="script.js"></script>
+<script src="stock.js"></script>
 </body>
 </html>
