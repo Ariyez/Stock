@@ -1,7 +1,7 @@
 {
   "name": "TCT SUPER APP",
   "short_name": "TCT",
-  "start_url": "/Stock/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
