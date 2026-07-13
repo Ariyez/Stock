@@ -365,3 +365,8 @@ loadSheet("V70!A1:E", "v70");
 loadSheet("X300!A1:E", "x300");
 loadSheet("Z11!A1:E", "iqz11");
 loadSheet("15!A1:E", "iq15");
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js")
+    .then(() => console.log("Service Worker registered"));
+}
