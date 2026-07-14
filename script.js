@@ -370,3 +370,47 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("/sw.js")
     .then(() => console.log("Service Worker registered"));
 }
+
+const API_KEY = "AIzaSyB5-DJ8TNb1DoxfC6LNoecM7YMo8g1yS1I";
+const SHEET_ID = "1vhPPwpeFsQwSWBhJXIzVmEwI_3ZxdwCIrwWBmDzPbfY";
+const RANGE = "Marquee!A:B";
+
+function isValidRow(row) {
+  const colB = row[1] || "";
+  return (
+    colB.trim() !== "" &&
+    !colB.includes("AS07") &&
+    !/^Q/.test(colB)
+  );
+}
+
+async function getRows() {
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  return data.values;
+}
+
+async function runMarquee() {
+  const rows = await getRows();
+  const container = document.getElementById("scrollText");
+
+  const headerRow = `${rows[0][0]} - ${rows[0][1]}`;
+  const dataRows = rows.slice(1).filter(isValidRow);
+  const displayRows = [headerRow, ...dataRows.map(r => `${r[0]} - ${r[1]}`)];
+
+  let index = 0;
+  function showRow() {
+    if (index >= displayRows.length) index = 0;
+
+    container.textContent = displayRows[index];
+    index++;
+    
+    container.classList.remove("animate");
+    void container.offsetWidth;
+    container.classList.add("animate");
+    setTimeout(showRow, 3000);
+  }
+  showRow();
+}
+runMarquee();
