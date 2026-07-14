@@ -398,6 +398,37 @@ td.sellout {
   width: calc(100% + 3rem);
   height: clamp(40px, 6vh, 80px);
   background-color: var(--light-background-color2);
+  overflow: hidden;
+  text-align: center;
+}
+#container-taskbar #scrollText {
+  margin-top: .3rem;
+  padding: .3rem 1.2rem;
+  font-size: .6rem;
+  font-style: italic;
+  display: inline-block;
+  color: var(--dark-text-color);
+  background-color: var(--iqoo-color);
+  border-radius: 1.2rem 0 1.2rem 0;
+  white-space: nowrap;
+  opacity: 0;
+}
+.animate {
+  animation: 
+    scrollEase 3s ease-in-out forwards,
+    fadeEase 3s ease-in-out forwards;
+}
+@keyframes scrollEase {
+  0%   { transform: translateX(100%); }
+  25%  { transform: translateX(0%); }
+  75%  { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+@keyframes fadeEase {
+  0%   { opacity: 0; }
+  25%  { opacity: 1; }
+  75%  { opacity: 1; }
+  100% { opacity: 0; }
 }
 /* TASKBAR & FOOTER END */
 
