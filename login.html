@@ -2,7 +2,9 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <title>Login dengan Google Sheets + Debug</title>
+  <!-- Library bcrypt.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
 </head>
 <body>
   <h2>Login</h2>
@@ -14,20 +16,45 @@
   <p id="result"></p>
 
   <script>
-    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    const sheetId = "1vhPPwpeFsQwSWBhJXIzVmEwI_3ZxdwCIrwWBmDzPbfY";
+    const apiKey = "AIzaSyDgR-fdDIELXhVqUIGx2ldjssfJNGl2wd4";
+    const range = "users!A:B"; // username & hash
+
+    async function getUsers() {
+      const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      return data.values;
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
       e.preventDefault();
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
+      const u = document.getElementById("username").value;
+      const p = document.getElementById("password").value;
 
-      const res = await fetch('/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-      });
+      const users = await getUsers();
+      const user = users.find(row => row[0] === u);
 
-      const text = await res.text();
-      document.getElementById('result').innerText = text;
+      if (!user) {
+        document.getElementById("result").innerText = "User tidak ditemukan!";
+        return;
+      }
+
+      const hash = user[1];
+      const valid = await bcrypt.compare(p, hash);
+
+      if (valid) {
+        document.getElementById("result").innerText = "Login berhasil!";
+        // Contoh aksi tambahan:
+        // Redirect ke halaman dashboard
+        window.location.href = "dashboard.html";
+      } else {
+        document.getElementById("result").innerText = "Password salah!";
+      }
     });
+  </script>
+</body>
+</html>
   </script>
 </body>
 </html>
