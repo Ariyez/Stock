@@ -1,9 +1,11 @@
+// API KEY AND SHEET ID
+const API_KEY = "AIzaSyB5-DJ8TNb1DoxfC6LNoecM7YMo8g1yS1I";
+const SHEET_ID = "1vhPPwpeFsQwSWBhJXIzVmEwI_3ZxdwCIrwWBmDzPbfY";
+
 // RANK ALLTYPE
 async function loadRankAlltype() {
-  const sheetId = "1vhPPwpeFsQwSWBhJXIzVmEwI_3ZxdwCIrwWBmDzPbfY";
-  const apiKey = "AIzaSyB5-DJ8TNb1DoxfC6LNoecM7YMo8g1yS1I";
   const range = "'Top Rank'!D51:F58";
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${range}?key=${API_KEY}`;
 
   const res = await fetch(url);
   const data = await res.json();
@@ -38,10 +40,8 @@ loadRankAlltype();
 
 // RANK REVENUE
 async function loadRankRevenue() {
-  const sheetId = "1vhPPwpeFsQwSWBhJXIzVmEwI_3ZxdwCIrwWBmDzPbfY";
-  const apiKey = "AIzaSyB5-DJ8TNb1DoxfC6LNoecM7YMo8g1yS1I";
   const range = "'Top Rank'!A51:C58";
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${range}?key=${API_KEY}`;
 
   const res = await fetch(url);
   const data = await res.json();
@@ -76,10 +76,8 @@ loadRankRevenue();
 
 // RANK PROFOK
 async function loadRankProfok() {
-  const sheetId = "1vhPPwpeFsQwSWBhJXIzVmEwI_3ZxdwCIrwWBmDzPbfY";
-  const apiKey = "AIzaSyB5-DJ8TNb1DoxfC6LNoecM7YMo8g1yS1I";
   const range = "'Top Rank'!A69:C76";
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${range}?key=${API_KEY}`;
 
   const res = await fetch(url);
   const data = await res.json();
@@ -114,10 +112,8 @@ loadRankProfok();
 
 // RANK QOALA
 async function loadRankQoala() {
-  const sheetId = "1vhPPwpeFsQwSWBhJXIzVmEwI_3ZxdwCIrwWBmDzPbfY";
-  const apiKey = "AIzaSyB5-DJ8TNb1DoxfC6LNoecM7YMo8g1yS1I";
   const range = "'Top Rank'!D69:F76";
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${range}?key=${API_KEY}`;
 
   const res = await fetch(url);
   const data = await res.json();
@@ -152,10 +148,8 @@ loadRankQoala();
 
 // RANK ACC
 async function loadRankAcc() {
-  const sheetId = "1vhPPwpeFsQwSWBhJXIzVmEwI_3ZxdwCIrwWBmDzPbfY";
-  const apiKey = "AIzaSyB5-DJ8TNb1DoxfC6LNoecM7YMo8g1yS1I";
   const range = "'Top Rank'!A87:C94";
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${range}?key=${API_KEY}`;
 
   const res = await fetch(url);
   const data = await res.json();
@@ -190,10 +184,8 @@ loadRankAcc();
 
 // RANK PERFORM
 async function loadRankPerform() {
-  const sheetId = "1vhPPwpeFsQwSWBhJXIzVmEwI_3ZxdwCIrwWBmDzPbfY";
-  const apiKey = "AIzaSyB5-DJ8TNb1DoxfC6LNoecM7YMo8g1yS1I";
   const range = "'Top Rank'!A133:C140";
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${range}?key=${API_KEY}`;
 
   const res = await fetch(url);
   const data = await res.json();
@@ -229,85 +221,86 @@ loadRankPerform();
 // STOCKAN SERIES
 const seriesToneMap = {
   y05: {
-    "black": "dark",
-    "blue": "light"
+    black: "dark",
+    blue: "light",
   },
   y11d: {
-    "black": "dark",
-    "platinum": "light"
+    black: "dark",
+    platinum: "light",
   },
   y31d: {
-    "grey": "dark",
-    "white": "light"
+    grey: "dark",
+    white: "light",
   },
   y500: {
-    "blue": "dark",
-    "white": "light"
+    blue: "dark",
+    white: "light",
   },
   v60lite: {
-    "black": "dark",
-    "blue": "light",
-    "pink": "light"
+    black: "dark",
+    blue: "light",
+    pink: "light",
   },
   v70fe: {
-    "blue": "dark",
-    "silver": "light",
-    "purple": "light",
+    blue: "dark",
+    silver: "light",
+    purple: "light",
   },
   v70: {
-    "brown": "dark",
-    "gray": "light",
-    "gold": "light",
+    brown: "dark",
+    gray: "light",
+    gold: "light",
   },
   x300: {
-    "black": "dark",
-    "black2": "dark",
-    "black3": "dark",
-    "blue": "light",
-    "pink": "light",
-    "brown": "light",
-    "white": "light",
-    "green": "light",
+    black: "dark",
+    black2: "dark",
+    black3: "dark",
+    blue: "light",
+    pink: "light",
+    brown: "light",
+    white: "light",
+    green: "light",
   },
   iqz11: {
-    "black": "dark",
-    "black": "dark",
-    "blue": "light",
+    black: "dark",
+    black: "dark",
+    blue: "light",
   },
   iq15: {
-    "black": "dark",
-    "silver": "light",
-    "alpha": "dark",
-    "legend": "light",
-  }
+    black: "dark",
+    silver: "light",
+    alpha: "dark",
+    legend: "light",
+  },
 };
 
-function getTone(seriesId, colorName){
+function getTone(seriesId, colorName) {
   const lower = colorName.toLowerCase().replace(/\s+/g, "-");
   const tone = seriesToneMap[seriesId]?.[lower];
   return tone || "light";
 }
 
 async function loadSheet(range, tableId) {
-  const sheetId = "1vhPPwpeFsQwSWBhJXIzVmEwI_3ZxdwCIrwWBmDzPbfY";
-  const apiKey = "AIzaSyB5-DJ8TNb1DoxfC6LNoecM7YMo8g1yS1I";
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
-  
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${range}?key=${API_KEY}`;
+
   const res = await fetch(url);
   const data = await res.json();
   const tbody = document.querySelector(`#${tableId} tbody`);
 
   let memoryGroups = {};
-  data.values.slice(1).forEach(row => {
+  data.values.slice(1).forEach((row) => {
     const [memory, srp, color, stock, sellout] = row;
     if (!memoryGroups[memory]) memoryGroups[memory] = {};
     if (!memoryGroups[memory][srp]) memoryGroups[memory][srp] = [];
-    memoryGroups[memory][srp].push({color, stock, sellout});
+    memoryGroups[memory][srp].push({ color, stock, sellout });
   });
 
   Object.entries(memoryGroups).forEach(([memory, srpGroup]) => {
     let memoryAdded = false;
-    const totalRows = Object.values(srpGroup).reduce((sum, arr) => sum + arr.length, 0);
+    const totalRows = Object.values(srpGroup).reduce(
+      (sum, arr) => sum + arr.length,
+      0,
+    );
 
     Object.entries(srpGroup).forEach(([srp, rows]) => {
       rows.forEach((r, idx) => {
@@ -315,7 +308,7 @@ async function loadSheet(range, tableId) {
 
         const colorKey = r.color.toLowerCase().replace(/\s+/g, "-");
         tr.dataset.color = colorKey;
-        tr.dataset.tone  = getTone(tableId, r.color);
+        tr.dataset.tone = getTone(tableId, r.color);
 
         if (!memoryAdded) {
           const tdMemory = document.createElement("td");
@@ -367,15 +360,13 @@ loadSheet("Z11!A1:E", "iqz11");
 loadSheet("15!A1:E", "iq15");
 
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/sw.js")
+  navigator.serviceWorker
+    .register("/sw.js")
     .then(() => console.log("Service Worker registered"));
 }
 
-const API_KEY = "AIzaSyB5-DJ8TNb1DoxfC6LNoecM7YMo8g1yS1I";
-const SHEET_ID = "1vhPPwpeFsQwSWBhJXIzVmEwI_3ZxdwCIrwWBmDzPbfY";
-const RANGE = "Marquee!A:B";
-
 function isValidRow(row) {
+  const RANGE = "Marquee!A:B";
   const colB = row[1] || "";
   return (
     colB.trim() !== "" &&
@@ -387,6 +378,7 @@ function isValidRow(row) {
 }
 
 async function getRows() {
+  const RANGE = "Marquee!A:B";
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
   const res = await fetch(url);
   const data = await res.json();
@@ -399,7 +391,7 @@ async function runMarquee() {
 
   const headerRow = `${rows[0][0]} - ${rows[0][1]}`;
   const dataRows = rows.slice(1).filter(isValidRow);
-  const displayRows = [headerRow, ...dataRows.map(r => `${r[0]} - ${r[1]}`)];
+  const displayRows = [headerRow, ...dataRows.map((r) => `${r[0]} - ${r[1]}`)];
 
   let index = 0;
   function showRow() {
@@ -407,7 +399,7 @@ async function runMarquee() {
 
     container.textContent = displayRows[index];
     index++;
-    
+
     container.classList.remove("animate");
     void container.offsetWidth;
     container.classList.add("animate");
@@ -416,3 +408,42 @@ async function runMarquee() {
   showRow();
 }
 runMarquee();
+
+async function getSheetData() {
+  const RANGE = "users!A1:B";
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return data.values; // array of rows
+}
+
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const inputUsername = document.getElementById("username").value;
+  const inputPassword = document.getElementById("password").value;
+  const message = document.getElementById("message");
+
+  try {
+    const rows = await getSheetData();
+
+    // baris pertama biasanya header, jadi mulai dari index 1
+    const valid = rows.some(
+      (row) => row[0] === inputUsername && row[1] === inputPassword,
+    );
+
+    if (valid) {
+      message.textContent = "Login berhasil!";
+      message.style.color = "green";
+      // contoh redirect ke dashboard
+      // window.location.href = "dashboard.html";
+    } else {
+      message.textContent = "Username atau password salah.";
+      message.style.color = "red";
+    }
+  } catch (err) {
+    message.textContent = "Terjadi error saat mengakses data.";
+    message.style.color = "red";
+    console.error(err);
+  }
+});

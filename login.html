@@ -2,55 +2,53 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Login dengan Google Sheets + Debug</title>
-  <!-- Library bcrypt.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: 'Vivo Sans Std', sans-serif;
+      margin: 50px;
+      text-align: center;
+    }
+    form {
+      max-width: 300px;
+      margin: auto;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 20px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #ffc000;
+      color: #000;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.8;
+    }
+    #result {
+      text-align: center;
+      color: red;
+    }
+    </style>
 </head>
 <body>
-  <h2>Login</h2>
-  <form id="loginForm">
-    <input type="text" id="username" placeholder="Username" required><br><br>
-    <input type="password" id="password" placeholder="Password" required><br><br>
-    <button type="submit">Login</button>
-  </form>
-  <p id="result"></p>
-
-  <script>
-    const sheetId = "1vhPPwpeFsQwSWBhJXIzVmEwI_3ZxdwCIrwWBmDzPbfY";
-    const apiKey = "AIzaSyB5-DJ8TNb1DoxfC6LNoecM7YMo8g1yS1I";
-    const range = "users!A:B"; // username & hash
-
-    async function getUsers() {
-      const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
-      const res = await fetch(url);
-      const data = await res.json();
-      return data.values;
-    }
-
-    document.getElementById("loginForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const u = document.getElementById("username").value;
-      const p = document.getElementById("password").value;
-
-      const users = await getUsers();
-      const user = users.find(row => row[0] === u);
-
-      if (!user) {
-        document.getElementById("result").innerText = "User tidak ditemukan!";
-        return;
-      }
-
-      const hash = user[1];
-      const valid = await bcrypt.compare(p, hash);
-
-      if (valid) {
-        document.getElementById("result").innerText = "Login berhasil!";
-        window.location.href = "/dashboard.html";
-      } else {
-        document.getElementById("result").innerText = "Password salah!";
-      }
-    });
-  </script>
+  <div class="login-box">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p id="message"></p>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
   </script>
