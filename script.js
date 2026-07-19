@@ -371,6 +371,7 @@ function isValidRow(row) {
   return (
     colB.trim() !== "" &&
     !colB.includes("AS07") &&
+    !colB.includes("VAST") &&
     !colB.includes("VCARE12") &&
     !/^IMOO/.test(colB) &&
     !/^Q/.test(colB)
