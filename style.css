@@ -240,40 +240,37 @@ table {
   overflow: hidden;
   padding: 1rem;
   margin: 0.5rem auto;
-  font-family: VivoSansStd;
+  font-family: "VivoSansStd", sans-serif;
 }
 
-th,
+th {
+  color: var(--dark-background-color);
+  padding: 5px;
+  background-color: var(--light-text-color);
+}
+
 td {
-  border-bottom: 2px solid #ddd;
+  font-family: "VivoSansStd", sans-serif;
+  border-bottom: 1px solid var(--light-text-color);
   padding: 5px;
   text-align: center;
 }
 
-/* Alignment khusus */
-td.color {
-  text-align: left;
-  font-family: "VivoSansStd", sans-serif;
-}
-
-td.srp {
-  font-family: "VivoSansStd", sans-serif;
-}
-
 /* Header */
 .stock-vivo th[colspan="5"] {
-  background: #415fff;
-  color: #fff;
-  height: 25px;
-  border-radius: 35px 0 35px 0;
-  font-family: "VivoSansStd", sans-serif;
+  background: var(--vivo-color);
+  color: var(--light-text-color);
 }
 
 .stock-iqoo th[colspan="5"] {
-  background: #ffc000;
-  color: #000;
+  background: var(--iqoo-color);
+  color: var(--dark-text-color);
+}
+
+.stock-vivo th[colspan="5"],
+.stock-iqoo th[colspan="5"] {
   height: 25px;
-  border-radius: 35px 0 35px 0;
+  border-radius: 35px 35px 0 0;
   font-family: "VivoSansStd", sans-serif;
 }
 
@@ -397,28 +394,20 @@ tr[data-color] {
   background-position: center;
 }
 
-/* Override: kolom Memory & SRP tetap putih */
 tr[data-color] td.memory,
 tr[data-color] td.srp {
-  background: #fff !important;
-  color: black !important;
-  text-shadow: none !important;
+  background-color: var(--light-background-color);
+  color: var(--dark-text-color);
+  text-shadow: none;
 }
 
 /* Tone styling di level baris */
 tr[data-tone="dark"] {
-  color: white;
+  color: var(--light-text-color);
   text-shadow: 0.5px 0.5px 1px black;
 }
 tr[data-tone="light"] {
-  color: black;
-}
-
-/* Styling tambahan per kolom angka */
-td.stock,
-td.sellout {
-  font-family: "VivoSansComp600", sans-serif;
-  font-weight: 600;
+  color: var(--dark-text-color);
 }
 
 /* Header dengan efek kilauan */
@@ -427,7 +416,7 @@ td.sellout {
   overflow: hidden;
   color: white;
   text-align: center;
-  padding: 10px;
+  padding: 5px;
 }
 
 /* Overlay kilauan */
@@ -459,11 +448,26 @@ td.sellout {
   }
 }
 
-#y31d,
-#y500 {
-  background-color: rgba(255, 255, 0, 0.8);
+#y31d {
+  padding-top: 2rem;
 }
 
+#y500 {
+  padding-bottom: 2rem;
+}
+
+.container-profok {
+  border-radius: 35px 35px 0 0;
+}
+
+.container-profok,
+.container-profok tr[data-color] td.memory,
+.container-profok tr[data-color] td.srp {
+  background: rgba(255, 255, 0, 1);
+}
+.container-profok td {
+  border-bottom: var(--iqoo-color) solid 1px;
+}
 /* TASKBAR START */
 #container-taskbar {
   position: fixed;

@@ -371,6 +371,7 @@ function isValidRow(row) {
   return (
     colB.trim() !== "" &&
     !colB.includes("AS07") &&
+    !colB.includes("VAST") &&
     !colB.includes("VCARE12") &&
     !/^IMOO/.test(colB) &&
     !/^Q/.test(colB)
@@ -433,10 +434,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     );
 
     if (valid) {
-      message.textContent = "Login berhasil!";
-      message.style.color = "green";
-      // contoh redirect ke dashboard
-      // window.location.href = "dashboard.html";
+      window.location.href = "/dashboard/dashboard.html";
     } else {
       message.textContent = "Username atau password salah.";
       message.style.color = "red";
