@@ -8,28 +8,29 @@
     <link rel="stylesheet" href="dashboard.css" />
   </head>
   <body>
-    <header>
+    <header class="header">
       <h1>Selamat Datang di Dashboard</h1>
     </header>
-    <nav>
-      <a href="#">Achievement</a>
-      <a href="#">Sellout</a>
-      <a href="#">Insentif</a>
+    <nav class="nav">
+      <a href="#achievements">Achievements</a>
+      <a href="#sellout">Sellout</a>
+      <a href="#insentif">Insentif</a>
       <a href="../index.html">Logout</a>
     </nav>
-    <main>
-      <div class="card">
-        <h2>Halo, User!</h2>
-        <p>Login berhasil. Ini adalah halaman dashboard sederhana.</p>
+
+    <div class="card">
+      <div id="achievements" class="achievements">
+        <h2>Achievements</h2>
+        <p>Ini adalah halaman dashboard kamu.</p>
       </div>
-      <div class="card">
-        <h2>Menu Utama</h2>
-        <ul>
-          <li><a href="#">Lihat Data</a></li>
-          <li><a href="#">Tambah Data</a></li>
-          <li><a href="#">Statistik</a></li>
-        </ul>
+      <div id="sellout" class="sellout">
+        <h2>Sellout</h2>
+        <p>Ini adalah halaman dashboard kamu.</p>
       </div>
-    </main>
+      <div id="insentif" class="insentif">
+        <h2>Insentif</h2>
+        <p>Ini adalah halaman dashboard kamu.</p>
+      </div>
+    </div>
   </body>
 </html>

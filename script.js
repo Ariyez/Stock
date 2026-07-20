@@ -434,7 +434,8 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     );
 
     if (valid) {
-      window.location.href = "/dashboard/dashboard.html";
+      window.location.href =
+        "https://ariyez.github.io/Stock/dashboard/dashboard.html";
     } else {
       message.textContent = "Username atau password salah.";
       message.style.color = "red";
